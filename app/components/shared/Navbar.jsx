@@ -1,11 +1,23 @@
+"use client"
 import React from 'react';
 import NavLink from './NavLink';
 import Link from 'next/link';
 import Image from 'next/image';
 
 import user from '@/app/assets/user.png'
+import { signOut, useSession } from '@/app/lib/auth-client';
+import { router } from 'better-auth/api';
 
 const Navbar = () => {
+    const loginUser = useSession();
+
+    const user = loginUser.data?.user;
+    console.log(user);
+
+
+
+
+
     return (
         <div className="navbar mt-3">
             <div className="navbar-start">
@@ -42,17 +54,37 @@ const Navbar = () => {
                     </li>
                 </ul>
             </div>
-            <div className="navbar-end">
-                <Image src={user} alt="logo" className='mr-3' />
-                <Link
-                    href="/login"
-                    className='bg-[#403F3F] text-white text-2xl font-bold py-2 px-10'
-                >
-                    Login
-                </Link>
-            </div>
+
+            {
+                user ? <div className="navbar-end">
+                    <h2 className='text-xl font-semibold mr-2'>{user?.name}</h2>
+                    <Image
+                        src={user?.image}
+                        width={50}
+                        height={50}
+                        alt="user"
+                        className='mr-3' />
+
+                    <button onClick={() => signOut()}
+                        className='bg-[#403F3F] text-white text-2xl font-bold py-2 px-10 hover:cursor-pointer'
+                    >
+                        Logout
+                    </button>
+
+                </div> :
+                    <div className="navbar-end">
+                        <Link
+                            href="/login"
+                            className='bg-[#403F3F] text-white text-2xl font-bold py-2 px-10'
+                        >
+                            Login
+                        </Link>
+                    </div>
+
+            }
         </div>
     );
 };
 
 export default Navbar;
+
