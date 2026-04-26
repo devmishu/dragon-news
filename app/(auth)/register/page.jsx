@@ -23,7 +23,7 @@ const RegisterPage = () => {
         if (error) {
             alert(error.message)
         } else {
-            alert("login sessusfull");
+            alert("Registetion sessusfull");
         }
 
     }
