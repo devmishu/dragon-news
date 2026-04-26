@@ -7,6 +7,9 @@ const Rightdebar = () => {
         const data = await authClient.signIn.social({
             provider: "google",
         });
+
+        console.log(data);
+        console.log('clicke');
     }
     return (
         <div className="flex flex-col gap-2">

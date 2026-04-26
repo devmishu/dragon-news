@@ -20,6 +20,12 @@ const RegisterPage = () => {
 
         console.log({ data, error });
 
+        if (error) {
+            alert(error.message)
+        } else {
+            alert("login sessusfull");
+        }
+
     }
     return (
         <div className="min-h-[80vh] container mx-auto flex flex-col justify-center items-center">
