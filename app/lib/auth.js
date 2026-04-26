@@ -10,9 +10,14 @@ const client = new MongoClient(process.env.DB_URI);
 const db = client.db("dragonNews");
 
 export const auth = betterAuth({
+    baseURL: process.env.BETTER_AUTH_URL,
     emailAndPassword: {
         enabled: true,
     },
+    trustedOrigins: [
+        "http://localhost:3000",
+        "https://dragon-news-tau-ten.vercel.app",
+    ],
     socialProviders: {
         google: {
             clientId: process.env.GOOGLE_CLIENT_ID,
