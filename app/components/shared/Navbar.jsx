@@ -5,8 +5,7 @@ import Link from 'next/link';
 import Image from 'next/image';
 
 import user from '@/app/assets/user.png'
-import { signOut, useSession } from '@/app/lib/auth-client';
-import { router } from 'better-auth/api';
+import { signOut, useSession } from '@/lib/auth-client';
 
 const Navbar = () => {
     const loginUser = useSession();
