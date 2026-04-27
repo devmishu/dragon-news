@@ -57,12 +57,14 @@ const Navbar = () => {
             {
                 user ? <div className="navbar-end">
                     <h2 className='text-xl font-semibold mr-2'>{user?.name}</h2>
-                    <Image
+                    {/* <Image
                         src={user?.image}
                         width={50}
                         height={50}
                         alt="user"
-                        className='mr-3' />
+                        className='mr-3' /> */}
+
+                    <img src={user?.image} alt="user" className='w-[35] h-[35] rounded-full mr-3'/>
 
                     <button onClick={() => signOut()}
                         className='bg-[#403F3F] text-white text-2xl font-bold py-2 px-10 hover:cursor-pointer'

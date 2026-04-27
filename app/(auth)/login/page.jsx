@@ -17,7 +17,7 @@ const LoginPage = () => {
             email: userData.email,
             password: userData.password,
             rememberMe: true,
-            callbackURL: "/",
+            callbackURL: "/about",
         });
         console.log({ data, error });
         if (error) {
